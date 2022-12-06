@@ -1,0 +1,21 @@
+$colors:(
+"dark-blue" :rgb(77, 91, 111),
+"light-gray":rgba(138, 156, 171),
+"light-blue":rgb(114, 186, 246),
+"red":#a94442,
+"pige":#f3f1ec
+
+);
+
+
+@mixin flexCenteredContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center
+};
+
+@mixin flexColumn {
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+};
