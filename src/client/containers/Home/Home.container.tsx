@@ -37,7 +37,6 @@ export default function Home() {
             max = (topStoriesIds.length - 10)
             randomNumber = Math.floor(Math.random() * (max - 0 + 1) + 0);
             setTopstoriesLoading(false)
-
             return topStoriesIds.slice(randomNumber, randomNumber+10)
         } catch (error) {
             setTopstoriesLoading(false)
@@ -76,7 +75,6 @@ export default function Home() {
             return setError(true)
         }
     }
-console.log("ff");
 
     useEffect(() => { getItems() }, [])
 
