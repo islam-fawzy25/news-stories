@@ -10,5 +10,4 @@ export const getData = async (url:string) => {
   } catch (err) {
     return {data:null,error:err}
   }
-
 };

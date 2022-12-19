@@ -3,7 +3,7 @@ import "./Home.style.scss"
 import MainCardNewsStories from "../../components/MainNewsStoriesCard/MainNewsStoriesCard.component"
 import KarmaScore from "../../components/karmaScore/KarmaScore.component";
 import { getData } from "../../services/fetchData"
-
+import { getArrayWithRandomItems } from "../../services/functions";
 interface Item {
     id: number
     by: string
@@ -22,11 +22,10 @@ export default function Home() {
     const [error, setError] = useState<boolean>(false);
     const [items, setItems] = useState<Item[]>([])
 
+
+
     const getTopStoriesIds: number[] | any = async () => {
         try {
-            let max
-            let randomNumber
-
             setTopstoriesLoading(true)
             const { data: topStoriesIds, error }: any | boolean = await getData(topStoriesUrl)
             if (error) {
@@ -34,10 +33,9 @@ export default function Home() {
                 return setError(true)
             }
             // Get random 10 top stories ids
-            max = (topStoriesIds.length - 10)
-            randomNumber = Math.floor(Math.random() * (max - 0 + 1) + 0);
+            const randomTenTopStoriesIds = getArrayWithRandomItems(10, topStoriesIds)
             setTopstoriesLoading(false)
-            return topStoriesIds.slice(randomNumber, randomNumber+10)
+            return randomTenTopStoriesIds
         } catch (error) {
             setTopstoriesLoading(false)
             return setError(true)
