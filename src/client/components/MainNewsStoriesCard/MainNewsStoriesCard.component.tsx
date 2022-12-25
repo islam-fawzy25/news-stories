@@ -1,27 +1,19 @@
 import React from "react";
 import "./MainNewsStoriesCard.style.scss";
 import logo from "../../images/logo512.png";
+import { StoryData } from "../../services/types";
 
-interface Props {
-    storyData: Data
-    children: JSX.Element
-}
-interface Data {
-    title: string
-    url: string
-    score: number
-    id: number
-    time: string
-
+interface Props{
+    storyData:StoryData
 }
 
-export default function MainCardNewsStories({ storyData, children }: Props) {
+export default function MainCardNewsStories({storyData}:Props ) {
 
     return (
         <div className="story-card-container">
             {storyData && <div className="story-card">
                 <div className="story-card-image">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="story-pic" />
                 </div>
                 <div className="story-card-content-container">
                     <div className="story-card-content-title">
@@ -41,7 +33,7 @@ export default function MainCardNewsStories({ storyData, children }: Props) {
                             <p><b>Time </b></p> <p>{storyData.time}</p>
                         </div>
                         <div>
-                            <p><b>Karma score </b></p><p>{children}</p>
+                            <p><b>Karma score </b></p><p>{storyData.karma}</p>
                         </div>
                     </div>
                 </div>
